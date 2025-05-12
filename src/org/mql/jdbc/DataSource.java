@@ -2,11 +2,12 @@ package org.mql.jdbc;
 
 import java.sql.Connection;
 
+//classe abstraite qui définit les infos communes pour se connecter à une base de données.
 abstract public class DataSource {
-	private String driver;
-	private String brigde;
-	private String host;
-	private String source;
+	private String driver; //nom du driver JDBC
+	private String brigde; //protocole JDBC (ex: jdbc:mysql:)
+	private String host;   //adresse de l'hote (serveur de base de donnees)
+	private String source; //nom de la base de donnees
 	private String user;
 	private String password;
 	
@@ -71,5 +72,6 @@ abstract public class DataSource {
 		this.password = password;
 	}
 	
+	// Méthode abstraite pour obtenir une connexion (sera implémentée dans les classes filles)
 	abstract public Connection getConnection();
 }
